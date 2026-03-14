@@ -1,0 +1,321 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1100" width="800" height="1100">
+  <defs>
+    <!-- Comic book halftone pattern -->
+    <pattern id="halftone" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.5" fill="rgba(0,0,0,0.15)"/>
+    </pattern>
+    <pattern id="halftone-light" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.2" fill="rgba(255,255,255,0.1)"/>
+    </pattern>
+    <!-- Energy glow -->
+    <radialGradient id="energyGlow" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0.4"/>
+      <stop offset="50%" style="stop-color:#FF4500;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#1a1a3e;stop-opacity:0"/>
+    </radialGradient>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d2b"/>
+      <stop offset="50%" style="stop-color:#1a1a4e"/>
+      <stop offset="100%" style="stop-color:#0a0a2a"/>
+    </linearGradient>
+    <!-- Gold metallic gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="30%" style="stop-color:#FFA500"/>
+      <stop offset="60%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#FF8C00"/>
+    </linearGradient>
+    <!-- Red energy gradient -->
+    <linearGradient id="redEnergy" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF0000"/>
+      <stop offset="100%" style="stop-color:#8B0000"/>
+    </linearGradient>
+    <!-- Blue energy -->
+    <linearGradient id="blueEnergy" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00BFFF"/>
+      <stop offset="100%" style="stop-color:#0040FF"/>
+    </linearGradient>
+    <!-- Comic ink filter -->
+    <filter id="comicInk">
+      <feMorphology operator="dilate" radius="1" in="SourceAlpha" result="thicken"/>
+      <feFlood flood-color="#000" result="black"/>
+      <feComposite in="black" in2="thicken" operator="in" result="outline"/>
+      <feMerge>
+        <feMergeNode in="outline"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Strong glow -->
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="blur" in2="blur" operator="over" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Drop shadow -->
+    <filter id="dropShadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="2" flood-color="#000" flood-opacity="0.7"/>
+    </filter>
+    <!-- Text shadow -->
+    <filter id="textShadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="1" flood-color="#000" flood-opacity="0.8"/>
+    </filter>
+    <!-- Lightning clip path -->
+    <clipPath id="pageClip">
+      <rect x="0" y="0" width="800" height="1100" rx="5"/>
+    </clipPath>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="800" height="1100" fill="url(#bgGrad)" clip-path="url(#pageClip)"/>
+  <rect width="800" height="1100" fill="url(#halftone)" opacity="0.5"/>
+
+  <!-- Comic book border -->
+  <rect x="8" y="8" width="784" height="1084" fill="none" stroke="#FFD700" stroke-width="4" rx="3"/>
+  <rect x="15" y="15" width="770" height="1070" fill="none" stroke="#333" stroke-width="2" rx="2"/>
+
+  <!-- Energy burst background -->
+  <rect width="800" height="1100" fill="url(#energyGlow)"/>
+
+  <!-- Radiating lines from center -->
+  <g opacity="0.15" transform="translate(400,450)">
+    <line x1="0" y1="0" x2="-400" y2="-450" stroke="#FFD700" stroke-width="2"/>
+    <line x1="0" y1="0" x2="400" y2="-450" stroke="#FFD700" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-400" y2="0" stroke="#FFD700" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="400" y2="0" stroke="#FFD700" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="-400" y2="200" stroke="#FFD700" stroke-width="1"/>
+    <line x1="0" y1="0" x2="400" y2="200" stroke="#FFD700" stroke-width="1"/>
+    <line x1="0" y1="0" x2="-200" y2="-450" stroke="#FF4500" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="200" y2="-450" stroke="#FF4500" stroke-width="1.5"/>
+    <line x1="0" y1="0" x2="-350" y2="-200" stroke="#FF4500" stroke-width="1"/>
+    <line x1="0" y1="0" x2="350" y2="-200" stroke="#FF4500" stroke-width="1"/>
+    <line x1="0" y1="0" x2="0" y2="-450" stroke="#FFD700" stroke-width="2"/>
+    <line x1="0" y1="0" x2="-100" y2="-450" stroke="#FFD700" stroke-width="1"/>
+    <line x1="0" y1="0" x2="100" y2="-450" stroke="#FFD700" stroke-width="1"/>
+    <line x1="0" y1="0" x2="-300" y2="-300" stroke="#FF4500" stroke-width="1"/>
+    <line x1="0" y1="0" x2="300" y2="-300" stroke="#FF4500" stroke-width="1"/>
+  </g>
+
+  <!-- MARVEL-STYLE HEADER -->
+  <rect x="50" y="30" width="700" height="90" rx="5" fill="#CC0000" stroke="#000" stroke-width="3" filter="url(#dropShadow)"/>
+  <rect x="55" y="35" width="690" height="80" rx="3" fill="none" stroke="#FF4444" stroke-width="1"/>
+  <text x="400" y="92" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="65" fill="white" font-weight="bold" letter-spacing="8" filter="url(#textShadow)">MARVEL</text>
+
+  <!-- Issue number badge -->
+  <circle cx="720" cy="155" r="35" fill="#FFD700" stroke="#000" stroke-width="3"/>
+  <text x="720" y="150" text-anchor="middle" font-family="Impact, sans-serif" font-size="14" fill="#000" font-weight="bold">#001</text>
+  <text x="720" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#000">$4.99</text>
+
+  <!-- SUPERHERO TITLE -->
+  <text x="400" y="175" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="52" fill="url(#goldGrad)" stroke="#000" stroke-width="2" letter-spacing="4" filter="url(#textShadow)">THE NETWORKER</text>
+  <text x="400" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#00BFFF" letter-spacing="6" filter="url(#glow)">MASTER OF WEB3 &amp; iGAMING</text>
+
+  <!-- HERO CHARACTER - Stylized comic book figure -->
+  <g filter="url(#comicInk)">
+    <!-- Hero body - suit jacket (grey with comic shading) -->
+    <path d="M280,420 Q280,380 320,350 L340,340 Q380,320 400,315 Q420,320 460,340 L480,350 Q520,380 520,420 L530,650 Q530,670 510,680 L290,680 Q270,670 270,650 Z" fill="#707888" stroke="#000" stroke-width="3"/>
+    <!-- Jacket lapels -->
+    <path d="M340,340 L380,420 L400,440 L420,420 L460,340" fill="#555D6A" stroke="#000" stroke-width="2"/>
+    <!-- Inner shirt (black t-shirt) -->
+    <path d="M350,350 Q370,340 400,335 Q430,340 450,350 L440,440 Q420,450 400,455 Q380,450 360,440 Z" fill="#1a1a1a" stroke="#000" stroke-width="2"/>
+
+    <!-- Jacket shading lines (comic style) -->
+    <line x1="290" y1="450" x2="310" y2="600" stroke="#555" stroke-width="1.5" opacity="0.6"/>
+    <line x1="300" y1="460" x2="315" y2="590" stroke="#555" stroke-width="1" opacity="0.4"/>
+    <line x1="500" y1="450" x2="490" y2="600" stroke="#555" stroke-width="1.5" opacity="0.6"/>
+    <line x1="510" y1="460" x2="495" y2="590" stroke="#555" stroke-width="1" opacity="0.4"/>
+
+    <!-- Neck -->
+    <rect x="375" y="290" width="50" height="55" rx="5" fill="#D4A574" stroke="#000" stroke-width="2"/>
+
+    <!-- Head shape -->
+    <ellipse cx="400" cy="260" rx="75" ry="90" fill="#D4A574" stroke="#000" stroke-width="3"/>
+
+    <!-- Hair (grey/silver, wavy) -->
+    <path d="M325,230 Q330,170 370,155 Q400,145 430,155 Q470,170 475,230 Q470,200 450,190 Q430,185 400,183 Q370,185 350,190 Q330,200 325,230" fill="#B0B0B0" stroke="#000" stroke-width="2"/>
+    <path d="M330,240 Q335,210 350,200 Q340,225 335,245" fill="#999" stroke="none"/>
+    <path d="M470,240 Q465,210 450,200 Q460,225 465,245" fill="#999" stroke="none"/>
+    <!-- Hair texture lines -->
+    <path d="M345,180 Q360,170 380,168" fill="none" stroke="#888" stroke-width="1"/>
+    <path d="M420,168 Q440,170 455,180" fill="none" stroke="#888" stroke-width="1"/>
+    <path d="M335,200 Q350,188 370,183" fill="none" stroke="#888" stroke-width="1"/>
+
+    <!-- Glasses (bold comic frames) -->
+    <rect x="345" y="240" width="45" height="35" rx="5" fill="none" stroke="#222" stroke-width="4"/>
+    <rect x="408" y="240" width="45" height="35" rx="5" fill="none" stroke="#222" stroke-width="4"/>
+    <line x1="390" y1="255" x2="408" y2="255" stroke="#222" stroke-width="3"/>
+    <line x1="345" y1="255" x2="330" y2="248" stroke="#222" stroke-width="3"/>
+    <line x1="453" y1="255" x2="468" y2="248" stroke="#222" stroke-width="3"/>
+    <!-- Lens reflection -->
+    <path d="M352,245 L360,245 L355,252" fill="rgba(255,255,255,0.3)" stroke="none"/>
+    <path d="M415,245 L423,245 L418,252" fill="rgba(255,255,255,0.3)" stroke="none"/>
+
+    <!-- Eyes behind glasses -->
+    <ellipse cx="367" cy="258" rx="8" ry="6" fill="white"/>
+    <circle cx="369" cy="258" r="4" fill="#4A3728"/>
+    <circle cx="370" cy="257" r="2" fill="#000"/>
+    <ellipse cx="430" cy="258" rx="8" ry="6" fill="white"/>
+    <circle cx="432" cy="258" r="4" fill="#4A3728"/>
+    <circle cx="433" cy="257" r="2" fill="#000"/>
+    <!-- Eye shine -->
+    <circle cx="371" cy="256" r="1" fill="white"/>
+    <circle cx="434" cy="256" r="1" fill="white"/>
+
+    <!-- Eyebrows (expressive, comic style) -->
+    <path d="M345,235 Q358,228 388,233" fill="none" stroke="#666" stroke-width="3" stroke-linecap="round"/>
+    <path d="M410,233 Q440,228 453,235" fill="none" stroke="#666" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Nose -->
+    <path d="M398,265 Q395,280 390,288 Q395,292 405,292 Q410,288 407,280" fill="none" stroke="#B8956A" stroke-width="2"/>
+
+    <!-- Mouth (confident smile) -->
+    <path d="M375,305 Q390,318 400,318 Q410,318 425,305" fill="none" stroke="#8B4513" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Beard/stubble area -->
+    <rect x="365" y="295" width="70" height="40" rx="20" fill="url(#halftone)" opacity="0.3"/>
+    <path d="M360,310 Q365,335 400,345 Q435,335 440,310" fill="none" stroke="#999" stroke-width="1" opacity="0.4"/>
+
+    <!-- Ears -->
+    <ellipse cx="325" cy="260" rx="12" ry="18" fill="#D4A574" stroke="#000" stroke-width="2"/>
+    <ellipse cx="475" cy="260" rx="12" ry="18" fill="#D4A574" stroke="#000" stroke-width="2"/>
+  </g>
+
+  <!-- SUPERHERO ENERGY EFFECTS -->
+  <!-- Energy aura around character -->
+  <ellipse cx="400" cy="400" rx="200" ry="280" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.3" filter="url(#strongGlow)"/>
+  <ellipse cx="400" cy="400" rx="180" ry="260" fill="none" stroke="#FF4500" stroke-width="1" opacity="0.2" filter="url(#glow)"/>
+
+  <!-- Lightning bolts from hands -->
+  <g filter="url(#strongGlow)">
+    <!-- Left hand energy -->
+    <path d="M270,650 L240,600 L260,610 L230,550 L255,565 L220,500 L280,580 L255,570 L285,630 L265,620 Z" fill="#00BFFF" stroke="#fff" stroke-width="1" opacity="0.9"/>
+    <!-- Right hand energy -->
+    <path d="M530,650 L560,600 L540,610 L570,550 L545,565 L580,500 L520,580 L545,570 L515,630 L535,620 Z" fill="#FFD700" stroke="#fff" stroke-width="1" opacity="0.9"/>
+  </g>
+
+  <!-- Floating blockchain/web3 symbols -->
+  <g filter="url(#glow)" opacity="0.8">
+    <!-- Blockchain cubes -->
+    <g transform="translate(120,350) rotate(-15)">
+      <rect x="0" y="0" width="40" height="40" fill="none" stroke="#00BFFF" stroke-width="2"/>
+      <line x1="0" y1="0" x2="15" y2="-12" stroke="#00BFFF" stroke-width="1.5"/>
+      <line x1="40" y1="0" x2="55" y2="-12" stroke="#00BFFF" stroke-width="1.5"/>
+      <line x1="40" y1="40" x2="55" y2="28" stroke="#00BFFF" stroke-width="1.5"/>
+      <line x1="15" y1="-12" x2="55" y2="-12" stroke="#00BFFF" stroke-width="1.5"/>
+      <line x1="55" y1="-12" x2="55" y2="28" stroke="#00BFFF" stroke-width="1.5"/>
+    </g>
+    <!-- Ethereum-like diamond -->
+    <g transform="translate(650,300)">
+      <path d="M0,-35 L25,0 L0,15 L-25,0 Z" fill="none" stroke="#9B59B6" stroke-width="2"/>
+      <path d="M0,-35 L0,15" stroke="#9B59B6" stroke-width="1"/>
+      <path d="M-25,0 L25,0" stroke="#9B59B6" stroke-width="1"/>
+    </g>
+    <!-- Gaming controller icon -->
+    <g transform="translate(150,550)">
+      <path d="M-25,0 Q-25,-15 -10,-15 L10,-15 Q25,-15 25,0 Q25,15 10,15 L-10,15 Q-25,15 -25,0" fill="none" stroke="#FF4500" stroke-width="2"/>
+      <circle cx="-12" cy="0" r="3" fill="#FF4500"/>
+      <circle cx="12" cy="0" r="3" fill="#FF4500"/>
+      <rect x="-3" y="-8" width="6" height="5" rx="1" fill="#FF4500"/>
+    </g>
+    <!-- Network nodes -->
+    <g transform="translate(650,500)">
+      <circle cx="0" cy="0" r="5" fill="#FFD700"/>
+      <circle cx="30" cy="-20" r="4" fill="#FFD700"/>
+      <circle cx="35" cy="15" r="4" fill="#FFD700"/>
+      <circle cx="-10" cy="25" r="3" fill="#FFD700"/>
+      <line x1="0" y1="0" x2="30" y2="-20" stroke="#FFD700" stroke-width="1"/>
+      <line x1="0" y1="0" x2="35" y2="15" stroke="#FFD700" stroke-width="1"/>
+      <line x1="0" y1="0" x2="-10" y2="25" stroke="#FFD700" stroke-width="1"/>
+      <line x1="30" y1="-20" x2="35" y2="15" stroke="#FFD700" stroke-width="1"/>
+    </g>
+  </g>
+
+  <!-- CITY SKYLINE (Belgrade inspired) -->
+  <g opacity="0.4">
+    <rect x="0" y="680" width="800" height="420" fill="#0a0a2a"/>
+    <!-- Buildings -->
+    <rect x="50" y="700" width="60" height="400" fill="#151535" stroke="#222" stroke-width="1"/>
+    <rect x="130" y="650" width="45" height="450" fill="#181840" stroke="#222" stroke-width="1"/>
+    <rect x="200" y="720" width="70" height="380" fill="#151535" stroke="#222" stroke-width="1"/>
+    <!-- Tall tower (like Belgrade Tower) -->
+    <path d="M580,400 Q590,390 600,400 L610,700 Q600,710 590,710 L580,710 Z" fill="#1a1a4e" stroke="#333" stroke-width="1"/>
+    <ellipse cx="595" cy="400" rx="20" ry="8" fill="#1a1a4e" stroke="#333" stroke-width="1"/>
+    <!-- More buildings -->
+    <rect x="620" y="680" width="50" height="420" fill="#151535" stroke="#222" stroke-width="1"/>
+    <rect x="690" y="720" width="55" height="380" fill="#181840" stroke="#222" stroke-width="1"/>
+    <rect x="450" y="700" width="40" height="400" fill="#151535" stroke="#222" stroke-width="1"/>
+    <rect x="500" y="730" width="55" height="370" fill="#181840" stroke="#222" stroke-width="1"/>
+    <!-- Building windows -->
+    <g fill="#FFD700" opacity="0.4">
+      <rect x="60" y="720" width="8" height="6"/><rect x="75" y="720" width="8" height="6"/>
+      <rect x="60" y="740" width="8" height="6"/><rect x="75" y="740" width="8" height="6"/>
+      <rect x="60" y="760" width="8" height="6"/><rect x="75" y="760" width="8" height="6"/>
+      <rect x="140" y="670" width="6" height="5"/><rect x="155" y="670" width="6" height="5"/>
+      <rect x="140" y="690" width="6" height="5"/><rect x="155" y="690" width="6" height="5"/>
+      <rect x="210" y="740" width="8" height="6"/><rect x="230" y="740" width="8" height="6"/>
+      <rect x="210" y="760" width="8" height="6"/><rect x="230" y="760" width="8" height="6"/>
+      <rect x="630" y="700" width="8" height="6"/><rect x="645" y="700" width="8" height="6"/>
+      <rect x="630" y="720" width="8" height="6"/><rect x="645" y="720" width="8" height="6"/>
+      <rect x="700" y="740" width="8" height="6"/><rect x="718" y="740" width="8" height="6"/>
+      <rect x="700" y="760" width="8" height="6"/><rect x="718" y="760" width="8" height="6"/>
+    </g>
+  </g>
+
+  <!-- AWARD BADGES / POWER INDICATORS -->
+  <!-- Left badge -->
+  <g transform="translate(130,800)">
+    <path d="M0,-50 L15,-20 L48,-15 L24,10 L30,42 L0,25 L-30,42 L-24,10 L-48,-15 L-15,-20 Z" fill="#FFD700" stroke="#000" stroke-width="2" filter="url(#dropShadow)"/>
+    <text x="0" y="-8" text-anchor="middle" font-family="Impact, sans-serif" font-size="11" fill="#000" font-weight="bold">TOP</text>
+    <text x="0" y="8" text-anchor="middle" font-family="Impact, sans-serif" font-size="10" fill="#000" font-weight="bold">CMO</text>
+  </g>
+
+  <!-- Right badge -->
+  <g transform="translate(670,800)">
+    <path d="M0,-50 L15,-20 L48,-15 L24,10 L30,42 L0,25 L-30,42 L-24,10 L-48,-15 L-15,-20 Z" fill="#FFD700" stroke="#000" stroke-width="2" filter="url(#dropShadow)"/>
+    <text x="0" y="-8" text-anchor="middle" font-family="Impact, sans-serif" font-size="10" fill="#000" font-weight="bold">TOP</text>
+    <text x="0" y="8" text-anchor="middle" font-family="Impact, sans-serif" font-size="8" fill="#000" font-weight="bold">NETWORKER</text>
+  </g>
+
+  <!-- BOTTOM BANNER -->
+  <g>
+    <!-- Banner background -->
+    <path d="M50,900 L750,900 L740,960 L60,960 Z" fill="#CC0000" stroke="#000" stroke-width="3"/>
+    <path d="M55,905 L745,905 L736,955 L64,955 Z" fill="none" stroke="#FF4444" stroke-width="1"/>
+
+    <!-- Banner text -->
+    <text x="400" y="942" text-anchor="middle" font-family="Impact, Arial Black, sans-serif" font-size="36" fill="white" letter-spacing="3" filter="url(#textShadow)">BELGRADE WEB3 &amp; iGAMING</text>
+  </g>
+
+  <!-- Sub-banner -->
+  <rect x="200" y="975" width="400" height="45" rx="5" fill="#1a1a4e" stroke="#FFD700" stroke-width="2"/>
+  <text x="400" y="1005" text-anchor="middle" font-family="Impact, sans-serif" font-size="28" fill="#FFD700" letter-spacing="5">VOTE FOR US!</text>
+
+  <!-- NGM GAME logo area -->
+  <g transform="translate(400,1055)">
+    <text x="0" y="0" text-anchor="middle" font-family="Impact, sans-serif" font-size="20" fill="#FFD700" letter-spacing="3">NGM GAME x BWIGA</text>
+  </g>
+
+  <!-- Comic book action lines overlay -->
+  <g opacity="0.08">
+    <line x1="0" y1="0" x2="400" y2="400" stroke="white" stroke-width="3"/>
+    <line x1="800" y1="0" x2="400" y2="400" stroke="white" stroke-width="3"/>
+    <line x1="0" y1="200" x2="400" y2="400" stroke="white" stroke-width="2"/>
+    <line x1="800" y1="200" x2="400" y2="400" stroke="white" stroke-width="2"/>
+    <line x1="0" y1="550" x2="400" y2="400" stroke="white" stroke-width="2"/>
+    <line x1="800" y1="550" x2="400" y2="400" stroke="white" stroke-width="2"/>
+  </g>
+
+  <!-- Halftone overlay for comic effect -->
+  <rect width="800" height="1100" fill="url(#halftone-light)" opacity="0.3"/>
+</svg>
